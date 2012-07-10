@@ -1,0 +1,224 @@
+﻿/*
+ *  Copyright (c) 2011-2012 , Zoya Pourmirza, 2012, All Rights Reserved.
+ * 
+ * == BEGIN LICENSE == 
+ * 
+ *      Licensed under the GNU Lasser General Public License, Version 2.1 (the "License");
+ *      You may not use this file except in compliance with the License.
+ *      You may obtain a copy of the License at
+ *          - GNU Lesser General Public License Version 2.1 (the "LGPL") 
+ *          http://www.gnu.org/licenses/lgpl-2.1.html
+ * 
+ *      This software is free; you can redistribute it and/or
+ *      modify it under the terms of the GNU Lesser General Public
+ *      License as published by the Free Software Foundation; either
+ *      version 2.1 of the License, or (at your option) any later version.
+ *
+ *      This library is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU 
+ *      Lesser General Public License for more details.
+ *
+ *      You should have received a copy of the GNU Lesser General Public
+ *      License along with this software; if not, write to the Free Software
+ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ * 
+ *      The University of Manchester, hereby disclaims all copyright interest in
+ *      the software written by Zoya Pourmirza.
+ *
+ * 
+ * == END LICENSE == 
+ * 
+*/ 
+
+
+*
+{
+    padding:            0px;
+    margin:             0 auto;
+}
+body
+{
+    background-color:   black;
+    width:              1260px;
+}            
+.top
+{
+    margin:             0px;
+    margin-right:       0px;
+    margin-left:        165px;
+    margin-top:         0px;
+    padding:            0px;
+    width:              800px;             
+}
+
+.highlight
+    {
+        background-color:Yellow;
+    }    
+    
+
+.titlestyle
+{
+    margin:			    15px;
+	margin-left:		250px;
+	border:				3px purple dashed; 
+	width:				625px; 
+	height:				30px; 
+	padding:			3px;
+	font-weight:		bold;
+	font-family:		'Times New Roman', Times, serif;
+	font-size:			18pt;
+	color:				White;
+	text-decoration:	none;
+	text-align:			center;
+}     
+#timer
+{
+    margin-top:         0px;
+    margin-right:       30px;            
+    width:              160px;             
+    font-family:        'Times New Roman', Times New Roman, Serif;
+    font-size:          12px;
+    color:              White;
+    text-align:         left;
+    float:              right;
+}
+.img
+{
+    margin:             0px;
+    position:           absolute;             
+    left:               0px;
+    top:                0px;
+    width:              auto; 
+    height:             auto;
+}     
+.wrapper
+{
+                
+    margin-left:		10px;
+    margin-top:         10px;
+    margin-right:       0px;
+	width:				1400px;
+	height:				530px;
+}
+#map
+{
+                
+    height: 			530px; 
+	width: 				900px;  
+	border:				3px purple dashed; 
+	padding: 			20px;
+	margin-left:		70px;
+	margin-top:         5px;
+	float:				left;
+}
+.locations
+{
+    margin-left:		0px;
+	padding:			0px;
+	width:				400px;
+	height:				495px;
+	float:				right;				
+}
+.ButtonsTable
+{
+    padding:            0px;
+    float:              right; 
+    font-family:		"Times New Roman", Times, serif;
+	font-size:			14pt;
+	color:              white;
+}     
+.Button
+{
+    width:				100px; 
+	height:				30px; 
+	font-family:		"Times New Roman", Times, serif;
+	font-size:			12pt;
+	font-weight:		bold;
+	color:				navy;
+	background:			navy;
+}
+a
+{
+    border:             2px;
+    color:              white;           
+             
+}
+a:hover
+{
+    background:         orange;
+    color:              blue;
+} 
+#onload
+{
+    font-family:		Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	font-weight:		bold;
+	font-size:			30pt;
+	font-weight:		normal;
+	text-align:			center;
+	color:				red;
+}
+#footer
+{
+    margin:             610px; 
+    margin-left:        300px;  
+    border:		        1purple dashed; 
+	width:				625px;
+    height:				30px;   	
+	border:				1px purple dashed;		
+	padding:			2px;
+	font-family:		"Courier New", Courier, monospace;
+	font-size:			9pt;
+	color:				white;
+	text-align:			center;		
+} 
+
+.wrapper2
+{               
+    margin-left:		10px;
+    margin-top:         10px;
+    margin-right:       0px;
+	width:				1400px;	
+}
+
+.DATACHART
+{   
+    width: 				900px;  
+	border:				3px purple dashed; 
+	padding: 			10px;
+	margin-left:		70px;
+	margin-top:         5px;
+	float:				left;
+}
+.DATABASE
+{
+    margin-left:		0px;
+    margin-top:         5px;
+	padding:			0px;
+	width:				400px;	
+	float:				right;	
+	height:				495px;
+		
+}
+
+#showTableAndGraphWrapper
+{
+    margin-top:         10px;
+}
+
+#calender
+{
+    float:              right;
+    width:              300px;
+    margin-right:       150px;
+    margin-top:         10px;
+}
+
+#gridView
+{
+    height:             300px;
+    width:              560px;
+    overflow:           scroll;
+    text-align:         center;
+}
