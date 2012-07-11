@@ -116,6 +116,10 @@
                     <td><asp:TextBox runat="server" ID="dbServerTextBox" /></td>
                 </tr>
                 <tr>
+                    <td><asp:Label runat="server" ID="dbNameLabel" Text="Database Name" /></td>
+                    <td><asp:TextBox runat="server" ID="dbNameTextBox" /></td>
+                </tr>
+                <tr>
                     <td><asp:Label runat="server" Text="User Name" ID="dbUserNameLabel" /></td>
                     <td><asp:TextBox runat="server" ID="dbUserNameTextBox"/></td>
                 </tr>
@@ -134,7 +138,7 @@
             </p>
         </div>
     </asp:View>
-    <asp:View runat="server" ID="dataView"> 
+        <asp:View runat="server" ID="dataView"> 
         <div id="showTableAndGraphWrapper">
         <div id="searchSection">
             <asp:Label ID="tableLabel" runat="server" Text="Select the table" AssociatedControlID="tablereading"></asp:Label>

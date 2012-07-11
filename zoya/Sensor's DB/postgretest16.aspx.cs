@@ -50,6 +50,7 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
     private string server = "";
     private string username = "";
     private string password = "";
+    private string dbName = "";
     private bool isLogin = false;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -61,7 +62,7 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
             {
                 Multiview1.ActiveViewIndex = 0;
             }
-            else
+            if(login == 1)
             {
                 Multiview1.ActiveViewIndex = 1;
             }
@@ -210,10 +211,11 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
         username = dbUserNameTextBox.Text;
         password = dbPassTextbox.Text;
         server = dbServerTextBox.Text;
+        dbName = dbNameTextBox.Text;
 
         connectionString =
             "Server=" + server + ";" +
-            "Database=WASP;" +
+            "Database=" + dbName + ";" +
             "User ID="+ username + ";" +
             "Password=" + password + ";";
 
