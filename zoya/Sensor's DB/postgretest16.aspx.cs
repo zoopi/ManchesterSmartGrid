@@ -114,7 +114,9 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
     {
         /* --- initialize the DataTable named table as a temp --- */
         DataTable table = new DataTable();
-        InsertIntoTempDB(GridView2, table);
+
+        //copying the gridview into the datatable
+        GridViewToDataTable(GridView2, table);
 
         /* --- assign the start and end time from gridview which is populated by DB --- */
         DateTime startDate = Convert.ToDateTime(GridView2.Rows[0].Cells[0].Text);
@@ -165,8 +167,8 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
         }
     }
 
-    /* -- create a temp table for querying purpose --- */
-    protected void InsertIntoTempDB(GridView gv, DataTable table)
+    /* -- copying the gridview into datatable --- */
+    protected void GridViewToDataTable(GridView gv, DataTable table)
     {
         table.Columns.Add("timeStamp", System.Type.GetType("System.DateTime"));
         table.Columns.Add("value" , System.Type.GetType("System.Double"));
@@ -220,23 +222,23 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
             "Password=" + password + ";";
 
         InitialTheSearchPart(this.tableReading, this.YDropDown);
-
-        ConnectToDB(GridView2, connectionString, tableReading.SelectedValue);
         
-
+        String schema= "smart_meters";
+        ConnectToDB(GridView2, connectionString, tableReading.SelectedValue, schema);
+        
         //For over threshold
         OverThreshold(tableReading.SelectedValue, 37.3);
 
         if(isLogin)
-        Multiview1.ActiveViewIndex = 1;
+            Multiview1.ActiveViewIndex = 1;
     }
 
-    protected void ConnectToDB(GridView gv, String connectionString, String table)
+    protected void ConnectToDB(GridView gv, String connectionString, String table, String schemaName)
     {
         String query = "";
         if (table != null)
             query = "Select * " +
-                       "From smart_meters.\"" + table + "\"";
+                       "From " + schemaName + ".\"" + table + "\"";
         else
             Label2.Text = "No table is selected";
         try
@@ -277,9 +279,11 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
         yAxisDropDownList.Items.Add("Value");
         yAxisDropDownList.Items.Add("Total");
     }
+
     protected void tableReading_SelectedIndexChanged(object sender, EventArgs e)
     {
-        ConnectToDB(GridView2, connectionString, tableReading.SelectedItem.Text);
+        String schema = "smart_meters";
+        ConnectToDB(GridView2, connectionString, tableReading.SelectedItem.Text, schema);
     }
 }
 
