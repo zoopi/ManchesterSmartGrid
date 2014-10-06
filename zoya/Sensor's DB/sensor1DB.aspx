@@ -64,7 +64,7 @@
 
     <form id="form1" runat="server">
     <div>
-    <a target=_blank href="../Schematic/schematic1.aspx">
+     <a target=_blank href="Schematic/schematic1.aspx">
     <input type=button value="Schematic view-cRIO 1"
     </a>    
     </div>

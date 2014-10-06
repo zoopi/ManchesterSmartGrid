@@ -69,35 +69,56 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
         }
     }
 
-    /* --- this method checks the values when page is loaded 
+    /* --- this method checks the values when page is loaded Or not working sensor
      *  if the value of each cell is over the threshold:
      *      1- active alert: highlight the cell
      *      2- Passive alert: sending sms
-     */      
+     */
     protected void OverThreshold(string tableName, double threshold)
     {
-        for (int i = 0; i < GridView2.Rows.Count; i++){
+        AbnormalityService.overThresholdArray.Clear();
+        Boolean workingSensor = false;
+        for (int i = 0; i < GridView2.Rows.Count; i++)
+        {
             //for (int j = 0; j < GridView2.Rows[i].Cells.Count; j++)
             {
+                DateTime today = DateTime.Now;
+                DateTime yesterday = today.AddDays(-1);
+                DateTime gridTime = Convert.ToDateTime(GridView2.Rows[i].Cells[0].Text);
                 double data = Convert.ToDouble(GridView2.Rows[i].Cells[1].Text);
                 if (data > threshold)
                 {
                     GridView2.Rows[i].Cells[1].CssClass = "highlight";
-                    DateTime today = DateTime.Now;
-                    DateTime yesterday = today.AddDays(-1); 
-                    DateTime gridTime = Convert.ToDateTime(GridView2.Rows[i].Cells[0].Text);
                     if (gridTime.Date == yesterday.Date || gridTime.Date == today.Date)
                     {
                         GridView2.Rows[i].Cells[0].CssClass = "red";
-                        //sendSMS(data, tableName);
+
+                        //sendSMS("The value which is over the threshold is: " + data + " in " + tableName + ". ");
+
+                        OverThresholdObj thresholdObj = new OverThresholdObj()
+                        {
+                            ActualDataValue = data,
+                            PreDefinedThreshold = threshold,
+                            TimeStamp = gridTime
+                        };
+                        AbnormalityService.overThresholdArray.Add(thresholdObj);
                     }
                 }
+                if (gridTime.Date == today.Date && gridTime.Hour >= today.AddHours(-1).Hour)
+                {
+                    workingSensor = true;
+                }
             }
+        }
+        if (!workingSensor)
+        {
+            SensorError.Text = "The " + tableName + " is not working properly.";
+            //sendSMS("The " + tableName + " is not working properly.");
         }
     }
 
     //Method for sending SMS via IntelliSMS
-    protected void sendSMS(double value, string tblName)
+    protected void sendSMS(string msg)
     {
         IntelliSMS objIntelliSMS = new IntelliSMS();
 
@@ -106,8 +127,7 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
         int Balance = objIntelliSMS.GetBalance();
 
         String MessageId = objIntelliSMS.SendMsg 
-            ( "44775...", "The value which is over the threshold is: " + value + " in " + tblName + ". " +
-               "Your remaining credit is: " + Balance, "ZOYA" );
+            ( "44775...", msg + "Your remaining credit is: " + Balance, "ZOYA" );
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -131,10 +151,10 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
             endDate = Convert.ToDateTime(endDateTextBox.Text);
             showChartDesc = true;
         }
-        catch
+        catch (Exception exp)
         {
             Label2.CssClass = "errorText";
-            Label2.Text = "The input was invalid. You have to select a date from " + startDate.ToLongDateString() + " to " + endDate.ToLongDateString();
+            Label2.Text = exp.Message + "<br /> The input was invalid. You have to select a date from " + startDate.ToLongDateString() + " to " + endDate.ToLongDateString();
         }
 
         // querying on datatable for selecting only the rows which have the in range timestamp.
@@ -154,7 +174,7 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
         Chart1.Series["Series1"].XValueMember = "TimeStamp";
         Chart1.Series["Series1"].YValueMembers = YDropDown.SelectedValue;
 
-        Chart1.ChartAreas["ChartArea1"].AxisY.Title = YDropDown.SelectedValue + " (Joule)";
+        Chart1.ChartAreas["ChartArea1"].AxisY.Title = YDropDown.SelectedValue + " (KW.h)";
 
         //if (Chart1.Series["Series1"].XValueMember.Contains((Convert.ToDateTime("06/05/2012")).ToString()))
         //Chart1.ChartAreas["ChartArea1"].AxisX.Title = Chart1.Series["Series1"].
@@ -191,7 +211,6 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
                 if (j == 3)
                     data3 = Convert.ToDouble(gv.Rows[i].Cells[j].Text);
             }
-
             table.Rows.Add(dt, data1, data2, data3);
         }
     }
@@ -225,9 +244,10 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
         
         String schema= "smart_meters";
         ConnectToDB(GridView2, connectionString, tableReading.SelectedValue, schema);
-        
+        //AddToBackupDB(tableReading.SelectedValue, GridView2);
+
         //For over threshold
-        OverThreshold(tableReading.SelectedValue, 37.3);
+        OverThreshold(tableReading.SelectedValue, 23);
 
         if(isLogin)
             Multiview1.ActiveViewIndex = 1;
@@ -284,6 +304,48 @@ public partial class Sensor_s_DB_postgretest16 : System.Web.UI.Page
     {
         String schema = "smart_meters";
         ConnectToDB(GridView2, connectionString, tableReading.SelectedItem.Text, schema);
+        //AddToBackupDB(tableReading.SelectedValue, GridView2);
+    }
+
+    protected void AddToBackupDB(String tableName, GridView gv)
+    {
+        String connstring = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\BackupDatabase.mdf;Integrated Security=True";
+        using (SqlConnection connection = new SqlConnection(connstring))
+        {
+            connection.Open();
+            
+            SqlCommand dropTable = new SqlCommand("DROP TABLE " + tableName , connection);
+            dropTable.ExecuteNonQuery();
+            
+            SqlCommand createTable = new SqlCommand("CREATE TABLE " + tableName + "(Timestamp DATETIME NOT NULL, Value FLOAT (53) NULL, Total FLOAT (53) NULL, Duration FLOAT (53) NULL);", connection);
+            createTable.ExecuteNonQuery();
+            
+            DateTime today = DateTime.Now;
+            DateTime oneWeekAgo = today.AddDays(-7); 
+            
+            foreach (GridViewRow GVRow in gv.Rows)
+            {
+                DateTime timeStamp = Convert.ToDateTime(GVRow.Cells[0].Text);
+                if (today.Date >= timeStamp.Date && timeStamp.Date >= oneWeekAgo.Date)
+                {
+                    Double value = Convert.ToDouble(GVRow.Cells[1].Text);
+                    Double total = Convert.ToDouble(GVRow.Cells[2].Text);
+                    Double duration = Convert.ToDouble(GVRow.Cells[3].Text);
+
+                    SqlCommand addRow = new SqlCommand("INSERT INTO " + tableName + " VALUES (@timestamp, @value, @total, @duration)", connection);
+                    addRow.Parameters.AddWithValue("@timestamp", timeStamp);
+                    addRow.Parameters.AddWithValue("@value", value);
+                    addRow.Parameters.AddWithValue("@total", total);
+                    addRow.Parameters.AddWithValue("@duration", duration);
+                    addRow.ExecuteNonQuery();
+                }
+            }
+            connection.Close();
+        }
+    }
+    
+    protected void BackupButton_Click(object sender, EventArgs e)
+    {
+        AddToBackupDB(tableReading.SelectedValue, GridView2);
     }
 }
-

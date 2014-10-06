@@ -1,0 +1,26 @@
+lpserv.eee.manchester.ac.uk
+
+Zoya
+
+escapemessengertablet
+
+Database name: WASP
+--------
+
+git hub properties
+
+link :
+https://github.com/zoopi/manchestersmartgrid
+
+username:
+zoopi
+
+pass:
+zoya1361
+
+
+
+lpserv.eee.manchester.ac.uk
+
+
+escapemessengertablet

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="c#" AutoEventWireup="true" Title="postgres via Npgsql" CodeFile="Postgretest16.aspx.cs" Inherits="Sensor_s_DB_postgretest16" %>
+﻿<%@ Page Language="c#" AutoEventWireup="true" Title="postgres via Npgsql" CodeFile="postgretest16.aspx.cs" Inherits="Sensor_s_DB_postgretest16" %>
 <!-- 
  * Copyright (c) 2011-2012 , Zoya Pourmirza, 2012, All Rights Reserved.
  * 
@@ -41,7 +41,7 @@
     
     <link href="../StyleSheet.css" rel="StyleSheet" media="screen"/>
     
-    <!-- using meta for refreshing purpos -->
+    <!-- using meta for refreshing purpose -->
     <meta http-equiv="refresh" content="86400"/>
     
     <!-- JavaScript for popup Calender -->
@@ -212,8 +212,9 @@
                 </Series>
                 <ChartAreas>
                     <asp:ChartArea Name="ChartArea1">
-                        <AxisY Title="Value (Joule)" TitleFont="Microsoft Sans Serif, 9.75pt, style=Bold" 
-                            MaximumAutoSize="100" LineWidth="1">
+                        <AxisY Title="Value(KW.h)" TitleFont="Microsoft Sans Serif, 9.75pt, style=Bold" 
+                            MaximumAutoSize="100" LineWidth="1" IsLabelAutoFit="False">
+                            <LabelStyle Interval="Auto" Font="Microsoft Sans Serif, 9.75pt" />
                         </AxisY>
                         <AxisX Title="TimeStamp" IsLabelAutoFit="False" 
                             TitleFont="Microsoft Sans Serif, 9.75pt, style=Bold" MaximumAutoSize="100">
@@ -257,9 +258,20 @@
                 <SortedDescendingHeaderStyle BackColor="#000065" />
             </asp:GridView>
         </div> 
+        <div>
+            <asp:Button ID="BackupButton" runat="server" Text="Backup" OnClick="BackupButton_Click" />
+        </div>
+        <div>
+            <asp:Label runat="server" ID="SensorError" />
+        </div>
     </div>                              
     </asp:View>
     </asp:MultiView>
+
+    <a href="http://localhost:10359/TestGUI.aspx" target="_blank"> Check Service </a>
+
+     <br />
+
 </form>
-</body> 
-</html>       
+</body>     
+</html>

@@ -61,7 +61,6 @@
                 new google.maps.LatLng(53.467521, -2.233869)
                 ];
 
-
         var markers = [];
         var iterator = 0;
         var map;
@@ -165,7 +164,7 @@
     <div id="header">
         <div class= "img">
             <a href="http://www.manchester.ac.uk" target="_blank">
-                <img style="height:165px; position:absolute; padding:0px; margin:0px;" src="http://www.campus.manchester.ac.uk/medialibrary/marketing/logos/TUOM_4COL_TY_NEG%20cropped.png" alt="The University of Manchester, established in 1824."/>
+                <img style="height:165px; position:absolute; padding:0px; margin:0px;" src="L_shape_col_background.png" alt="The University of Manchester, established in 1824."/>
             </a>
         </div>
         <div id="timer">
@@ -201,7 +200,7 @@
                 <tr>
                     <td>
                         <!-- Manchester Museum -->
-                        <a target='new_window' href="Sensor's DB/postgretest.aspx" onclick="initialize(53.466246,-2.234559,16,'<h3> University of Manchester Museum </h3> <br> cRIO 1 <br> NUMBER OF TAILS /PHASE: 2 (400mm) <br> DIAMETER OF TAILS: 37.2mm <br> NUMBER OF TRANSFORMERS/SUB: 2 x (800KVA) <br> TOP OR BOTTOM ENTRY: B')"> 
+                        <a target='new_window' href="Sensor's DB/sensor1DB.aspx" onclick="initialize(53.466246,-2.234559,16,'<h3> University of Manchester Museum </h3> <br> cRIO 1 <br> NUMBER OF TAILS /PHASE: 2 (400mm) <br> DIAMETER OF TAILS: 37.2mm <br> NUMBER OF TRANSFORMERS/SUB: 2 x (800KVA) <br> TOP OR BOTTOM ENTRY: B')"> 
                             <!--onmouseover="initialize(53.465799,-2.233229,15)"-->
                             cRIO 1 
                         </a>
@@ -214,7 +213,7 @@
                 <tr>
                     <td>
                         <!-- Arthur Lewis -->
-                        <a target='new_window' href="Sensor's DB/sensor3DB.aspx" onclick="initialize(53.467083,-2.235825,16,'<h3> Arthur Lewis Building </h3> <br> cRIO 3 <br> NUMBER OF TAILS /PHASE: 2 (500mm) <br> DIAMETER OF TAILS: 42.5mm <br> NUMBER OF TRANSFORMERS/SUB: 2 x (800KVA) <br> TOP OR BOTTOM ENTRY: B')"> cRIO 3 </a>
+                        <a target='new_window' href="Sensor's DB/sensor3DB.aspx"" onclick="initialize(53.467083,-2.235825,16,'<h3> Arthur Lewis Building </h3> <br> cRIO 3 <br> NUMBER OF TAILS /PHASE: 2 (500mm) <br> DIAMETER OF TAILS: 42.5mm <br> NUMBER OF TRANSFORMERS/SUB: 2 x (800KVA) <br> TOP OR BOTTOM ENTRY: B')"> cRIO 3 </a>
                     </td>
                     <td>
                         <!-- Arthur Lewis-->
@@ -228,7 +227,7 @@
                     </td>
                     <td>
                         <!--Humanities Bridgeford street -->
-                        <a target='new_window' href="Sensor's DB/sensor6DB.aspx" onclick="initialize(53.46677,-2.236952,16,'<h3> Humanities Bridgeford Street </h3> <br> cRIO 6 <br> NUMBER OF TAILS /PHASE: 1 (400mm) <br> DIAMETER OF TAILS: 42.5mm <br> NUMBER OF TRANSFORMERS/SUB: 1 x (500KVA) <br> TOP OR BOTTOM ENTRY: T')"> cRIO 6 </a>
+                        <a target='new_window' href="Sensor's DB/sensor6DB.aspx"" onclick="initialize(53.46677,-2.236952,16,'<h3> Humanities Bridgeford Street </h3> <br> cRIO 6 <br> NUMBER OF TAILS /PHASE: 1 (400mm) <br> DIAMETER OF TAILS: 42.5mm <br> NUMBER OF TRANSFORMERS/SUB: 1 x (500KVA) <br> TOP OR BOTTOM ENTRY: T')"> cRIO 6 </a>
 	                </td>
                 </tr>
                 <tr>
@@ -244,11 +243,11 @@
                 <tr>
                     <td>
                         <!-- Martin Harris Bridgeford Street -->      
-                        <a target='new_window' href="Sensor's DB/sensor9DB.aspx" onclick="initialize(53.465876,-2.2359,16,'<h3> Martin Harris Bridgeford Street </h3> <br> cRIO 9 <br> NUMBER OF TAILS /PHASE: 2 (400mm) <br> DIAMETER OF TAILS: 39.0mm <br> NUMBER OF TRANSFORMERS/SUB: 2 x (1000KVA) <br> TOP OR BOTTOM ENTRY: B')"> cRIO 9 </a>
+                        <a target='new_window' href="Sensor's DB/sensor9DB.aspx"" onclick="initialize(53.465876,-2.2359,16,'<h3> Martin Harris Bridgeford Street </h3> <br> cRIO 9 <br> NUMBER OF TAILS /PHASE: 2 (400mm) <br> DIAMETER OF TAILS: 39.0mm <br> NUMBER OF TRANSFORMERS/SUB: 2 x (1000KVA) <br> TOP OR BOTTOM ENTRY: B')"> cRIO 9 </a>
                     </td>
                     <td>
                         <!-- Main Building John Owens -->
-                        <a target='new_window' href="Sensor's DB/sensor10DB.aspx" onclick="initialize(53.465493,-2.234602,16,'<h3> Main Building John Owens </h3> <br> cRIO 10 <br> NUMBER OF TAILS /PHASE: 2 (400mm) T1, 1 (400mm) T2 <br> DIAMETER OF TAILS: 37.7mm, 37.7mm <br> NUMBER OF TRANSFORMERS/SUB: 1 x 750 KVA  T1, 1 x 500 KVA  T2  <br> TOP OR BOTTOM ENTRY: T')"> cRIO 10 </a>
+                        <a target='new_window' href="Sensor's DB/sensor10DB.aspx"" onclick="initialize(53.465493,-2.234602,16,'<h3> Main Building John Owens </h3> <br> cRIO 10 <br> NUMBER OF TAILS /PHASE: 2 (400mm) T1, 1 (400mm) T2 <br> DIAMETER OF TAILS: 37.7mm, 37.7mm <br> NUMBER OF TRANSFORMERS/SUB: 1 x 750 KVA  T1, 1 x 500 KVA  T2  <br> TOP OR BOTTOM ENTRY: T')"> cRIO 10 </a>
 	                </td>
                 </tr>           
                 <tr>
@@ -258,13 +257,13 @@
                     </td>
                     <td>
                         <!-- JURL -->
-                        <a target='new_window' href="Sensor's DB/sensor12DB.aspx" onclick="initialize(53.464318,-2.234795,16,'<h3> John Rylands University Library </h3> <br> cRIO 12 <br> NUMBER OF TAILS /PHASE: 2 (400mm) T1, 2 (400mm) T2  <br> DIAMETER OF TAILS: 37.2mm, 37.2mm <br> NUMBER OF TRANSFORMERS/SUB: 1 x 800 KVA T1, 1 x 800 KVA T2 <br> TOP OR BOTTOM ENTRY: T')"> cRIO 12 </a>
+                        <a target='new_window' href="Sensor's DB/sensor12DB.aspx"" onclick="initialize(53.464318,-2.234795,16,'<h3> John Rylands University Library </h3> <br> cRIO 12 <br> NUMBER OF TAILS /PHASE: 2 (400mm) T1, 2 (400mm) T2  <br> DIAMETER OF TAILS: 37.2mm, 37.2mm <br> NUMBER OF TRANSFORMERS/SUB: 1 x 800 KVA T1, 1 x 800 KVA T2 <br> TOP OR BOTTOM ENTRY: T')"> cRIO 12 </a>
 	                </td>
                 </tr>  
                 <tr>
                     <td>
                         <!-- JURL -->
-                        <a target='new_window' href="Sensor's DB/sensor13DB.aspx" onclick="initialize(53.464318,-2.234795,16,'<h3> John Rylands University Library </h3> <br> cRIO 13 <br> NUMBER OF TAILS /PHASE: 2 (400mm) T1, 2 (400mm) T2  <br> DIAMETER OF TAILS: 37.2mm, 37.2mm <br> NUMBER OF TRANSFORMERS/SUB: 1 x 800 KVA T1, 1 x 800 KVA T2 <br> TOP OR BOTTOM ENTRY: T')"> cRIO 13 </a>
+                        <a target='new_window' href="Sensor's DB/sensor13DB.aspx"" onclick="initialize(53.464318,-2.234795,16,'<h3> John Rylands University Library </h3> <br> cRIO 13 <br> NUMBER OF TAILS /PHASE: 2 (400mm) T1, 2 (400mm) T2  <br> DIAMETER OF TAILS: 37.2mm, 37.2mm <br> NUMBER OF TRANSFORMERS/SUB: 1 x 800 KVA T1, 1 x 800 KVA T2 <br> TOP OR BOTTOM ENTRY: T')"> cRIO 13 </a>
                     </td>
                     <td>
                         <!-- Art Samuel Alexander -->
@@ -296,6 +295,12 @@
                    
                     <td></td>
                 </tr> 
+                <tr>
+                    <td>
+                        <a target='new_window' href="Sensor's DB/Simul.aspx"><button id="simulationButton">Simulation</button></a>
+                    </td>
+                    <td></td>
+                </tr>
             </table>
         </div>   
     </div>
@@ -304,4 +309,3 @@
     </div>  
 </body>
 </html>
-

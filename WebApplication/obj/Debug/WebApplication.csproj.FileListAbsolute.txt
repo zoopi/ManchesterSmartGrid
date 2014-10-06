@@ -1,0 +1,15 @@
+C:\Users\Zoya\Documents\Visual Studio 2010\Projects\zoya (5)\WebApplication\bin\WebApplication.dll
+C:\Users\Zoya\Documents\Visual Studio 2010\Projects\zoya (5)\WebApplication\bin\WebApplication.pdb
+C:\Users\Zoya\Documents\Visual Studio 2010\Projects\zoya (5)\WebApplication\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Zoya\Documents\Visual Studio 2010\Projects\zoya (5)\WebApplication\obj\Debug\WebApplication.dll
+C:\Users\Zoya\Documents\Visual Studio 2010\Projects\zoya (5)\WebApplication\obj\Debug\WebApplication.pdb
+C:\Users\Zoya\Desktop\zoya (5)\WebApplication\bin\WebApplication.dll
+C:\Users\Zoya\Desktop\zoya (5)\WebApplication\bin\WebApplication.pdb
+C:\Users\Zoya\Desktop\zoya (5)\WebApplication\obj\Debug\WebApplication.dll
+C:\Users\Zoya\Desktop\zoya (5)\WebApplication\obj\Debug\WebApplication.pdb
+C:\Users\Zoya\Dropbox\zoya (5)\WebApplication\bin\WebApplication.dll
+C:\Users\Zoya\Dropbox\zoya (5)\WebApplication\bin\WebApplication.pdb
+C:\Users\Zoya\Dropbox\zoya (5)\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
+C:\Users\Zoya\Dropbox\zoya (5)\WebApplication\obj\Debug\WebApplication.dll
+C:\Users\Zoya\Dropbox\zoya (5)\WebApplication\obj\Debug\WebApplication.pdb
+C:\Users\Zoya\Desktop\zoya (5)\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
